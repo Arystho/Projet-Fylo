@@ -1,0 +1,390 @@
+//===================================
+// font
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+//===================================
+// function
+$white: #fff;
+$white-grey: hsl(240, 75%, 98%);
+$green: hsl(170, 45%, 43%);
+$blue: hsl(224, 93%, 58%);
+$blue-black: hsl(243, 87%, 12%);
+$violet: hsl(238, 22%, 44%);
+$transparant: hsla(0, 0%, 100%, 0.5);
+
+$open-sans: 'Open Sans', sans-serif;
+$raleway: 'Raleway', sans-serif;
+
+//===================================
+// général
+* {
+    margin: 0;
+    font-size: 16px;
+    font-family: $open-sans;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    font-size: 16px;
+    font-family: $raleway;
+    line-height: 1.5;
+}
+
+h1,
+h2 {
+    font-size: 40px;
+    line-height: 1.5;
+}
+
+@mixin section($max-width, $padding, $margin) {
+    max-width: $max-width;
+    margin: $margin;
+    padding: $padding;
+}
+
+@mixin button($font-size, $border, $cursor, $padding, $border-radius) {
+    font-size: $font-size;
+    border: $border;
+    cursor: $cursor;
+    padding: $padding;
+    border-radius: $border-radius;
+}
+
+@mixin inputMail($border, $border-radius, $padding) {
+    border: $border;
+    border-radius: $border-radius;
+    padding: $padding;
+}
+
+//===================================
+// Header
+body {
+    header {
+        @include section(1440px, 0, auto);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav {
+        ul {
+            display: flex;
+            justify-content: space-between;
+            gap: 35px;
+            padding: 0;
+        }
+
+        a {
+            line-height: 1.5;
+            transition: all 0.2s ease-in-out;
+        }
+
+        a:hover {
+            color: $green;
+        }
+    }
+}
+
+//===================================
+// maine
+// Section 1
+#ALLFiles {
+    @include section (1440px, 0 15px, 50px auto);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+
+    div {
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+    }
+
+    hgroup {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .inputMail {
+        @include inputMail(1px solid $transparant, 4px, 12px 8px);
+        border-color: $blue-black;
+    }
+
+    .button {
+        @include button(16px, none, pointer, 12px 16px, 4px);
+        background-color: $blue;
+        color: $white;
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+//===================================
+// Section 2
+#productive {
+    margin-top: 280px;
+    position: relative;
+    background-color: $white-grey;
+
+    #productive::before {
+        content: "";
+        background-image: url(../img/bg-curve-desktop.svg);
+        position: absolute;
+        top: -113px;
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        background-size: cover;
+        height: 128px;
+    }
+
+    .container {
+        @include section(1440px, 120px 15px, auto);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+
+
+        .cont1 {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            hgroup {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+
+            .see {
+                color: $green;
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                border-bottom: 1px solid;
+                width: fit-content;
+            }
+
+            article {
+                width: 70%;
+                background-color: $white;
+                padding: 30px;
+                box-shadow: 0px 1px 14px #e1e1e1;
+                border-radius: 6px;
+                margin-top: 35px;
+            }
+
+            div {
+                display: grid;
+                grid-template-columns: 17% auto;
+                gap: 20px;
+                align-items: center;
+                margin: 30px 0;
+
+                img {
+                    width: 100%;
+                    border-radius: 50%;
+                }
+
+                .quote {
+                    max-width: 4%;
+                }
+
+                .arrow {
+                    max-width: 17%;
+                }
+
+                hgroup {
+                    gap: 0;
+                }
+
+            }
+
+
+            #test {
+                width: 100%;
+            }
+
+        }
+
+        .illustration-2 {
+            width: 100%;
+        }
+
+    }
+
+}
+
+//===================================
+// Section 3
+#access {
+    background-color: $violet;
+
+    .container {
+        @include section(1440px, 100px 15px, auto);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 200px;
+        align-items: center;
+        color: $white;
+
+        hgroup {
+            width: 75%;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .inputMail {
+            @include inputMail(1px solid $white, 4px, 12px 8px);
+        }
+
+        .button {
+            @include button(16px, none, pointer, 12px 16px, 4px);
+            background-color: $blue;
+            color: $white;
+            width: fit-content;
+
+        }
+
+    }
+}
+
+//===================================
+// footer
+footer {
+    background-color: $blue-black;
+    color: $white;
+
+    .container {
+        @include section(1440px, 100px 15px, auto);
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: 50px;
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            a {
+                color: $white;
+            }
+        }
+
+        a:hover {
+            color: $green;
+        }
+
+        .nth-child2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+
+            ul {
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 17px;
+            }
+        }
+
+        .nth-wild3 {
+            padding: 0;
+            display: flex;
+
+            ul {
+                flex-direction: row;
+                gap: 30px;
+
+                a {
+                    border: 1px solid $white;
+                    border-radius: 50%;
+                    padding: 5px 8px;
+                }
+            }
+
+        }
+    }
+}
+
+//===================================
+//responsive 1024px
+
+@media screen and (max-width: 1024px) {
+    #ALLFiles {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 80px;
+        align-items: center;
+    }
+
+    #productive {
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+    }
+
+    #access {
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+    }
+
+    footer {
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 80px;
+            align-items: center;
+
+            .nth-child2 {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 80px;
+                align-items: center;
+            }
+        }
+    }
+}
+
+//responsive 767px
+@media screen and (max-width: 767px) {
+    header {
+        flex-direction: column;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px
+    }
+}
